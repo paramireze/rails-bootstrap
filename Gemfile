@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) do |repo_name|
-  repo_name = "
-  "https://github.com/
+  repo_name = "https://github.com/"
 end
 ruby '2.3.1'
 gem 'rails', '~> 5.0.1'
@@ -30,6 +29,15 @@ group :development do
   gem 'hub', :require=>nil
   gem 'rails_layout'
 end
+
+=begin
+unicorn is an HTTP server for Rack applications designed to only
+serve fast clients on low-latency, high-bandwidth connections
+and take advantage of features in Unix/Unix-like kernels.
+Slow clients should only be served by placing a reverse
+proxy capable of fully buffering both the the request
+and response in between unicorn and slow clients.
+=end
 group :production do
   gem 'unicorn'
 end

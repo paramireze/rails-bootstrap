@@ -14,9 +14,9 @@
 #
 development:
   adapter:  postgresql
-  host:     y
+  host:     localhost
   encoding: unicode
-  database: rails-bootstrap_development
+  database: rails_bootstrap_development
   pool:     5
   username: rails-bootstrap
   password:
