@@ -1,2 +1,32 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<% @page_title = "Admin Users" %>
+
+<div class="users index">
+  <h2>Users</h2>
+
+  <div><%= pluralize(@users.size, 'user') %> found</div>
+
+  <%= link_to("add new user", new_user_path, :class => 'action new') %>
+  <table class="table" summary="Admin User list">
+    <tr class="header">
+      <th>id</th>
+      <th>first name</th>
+      <th>last name</th>
+      <th>email</th>
+      <th>username</th>
+      <th>created at</th>
+      <th>password digest</th>
+    </tr>
+    <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= mail_to(user.email) %></td>
+          <td><%= user.username %></td>
+          <td><%= user.created_at %></td>
+          <td><%= user.password_digest %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+

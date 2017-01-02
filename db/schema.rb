@@ -18,12 +18,12 @@ ActiveRecord::Schema.define(version: 20170102194133) do
   create_table "users", force: :cascade do |t|
     t.string   "first_name",      limit: 25
     t.string   "last_name",       limit: 50
-    t.string   "email",           limit: 75, default: ""
-    t.string   "username",                                null: false
-    t.string   "password_digest", limit: 40
+    t.string   "email",           limit: 75,  default: ""
+    t.string   "username",                                 null: false
+    t.string   "password_digest", limit: 400
     t.boolean  "deleted"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
 end

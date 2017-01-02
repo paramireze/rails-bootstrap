@@ -1,5 +1,9 @@
 class User < ApplicationRecord
 
+  has_secure_password
+
+  validates :password, length:{minimum:6}, on: :create
+
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
 
   validates :first_name,  :presence => true,
