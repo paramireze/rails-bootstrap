@@ -6,9 +6,9 @@
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Ruby Rails Bootstrap" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
     <%= stylesheet_link_tag 'dataTables.bootstrap4', media: 'all' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
     <%= javascript_include_tag 'jquery.dataTables', media: 'all' %>
 
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
     <%= csrf_meta_tags %>
   </head>
   <body>
