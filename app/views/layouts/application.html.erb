@@ -2,9 +2,12 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Rails Bootstrap" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Bootstrap" %>">
+    <title><%= content_for?(:title) ? yield(:title) : "Ruby Rails Bootstrap" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Ruby Rails Bootstrap" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <%= stylesheet_link_tag 'dataTables.bootstrap4', media: 'all' %>
+    <%= stylesheet_link_tag 'jquery.dataTables', media: 'all' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
     <%= csrf_meta_tags %>
   </head>
@@ -17,4 +20,10 @@
        <%= yield %>
     </main>
   </body>
+  <script>
+    $(document).ready(function() {
+      $('#example').DataTable();
+    } );
+
+  </script>
 </html>
