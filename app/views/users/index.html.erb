@@ -6,27 +6,37 @@
   <div><%= pluralize(@users.size, 'user') %> found</div>
 
   <%= link_to("add new user", new_user_path, :class => 'action new') %>
-  <table class="table" summary="Admin User list">
-    <tr class="header">
-      <th>id</th>
-      <th>first name</th>
-      <th>last name</th>
-      <th>email</th>
-      <th>username</th>
-      <th>created at</th>
-      <th>password digest</th>
-    </tr>
-    <% @users.each do |user| %>
-        <tr>
-          <td><%= user.id %></td>
-          <td><%= user.first_name %></td>
-          <td><%= user.last_name %></td>
-          <td><%= mail_to(user.email) %></td>
-          <td><%= user.username %></td>
-          <td><%= user.created_at %></td>
-          <td><%= user.password_digest %></td>
-        </tr>
-    <% end %>
+  <hr />
+  <table class="table" summary="Admin User list" id="table_users">
+    <thead>
+      <tr class="header">
+        <th>id</th>
+        <th>first name</th>
+        <th>last name</th>
+        <th>email</th>
+        <th>username</th>
+        <th>created at</th>
+        <th>password digest</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+            <td><%= mail_to(user.email) %></td>
+            <td><%= user.username %></td>
+            <td><%= user.created_at.to_s(:long) %></td>
+            <td><%= truncate(user.password_digest, :length => 20) %></td>
+          </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>
+<script>
+  $(document).ready(function() {
+    $('#table_users').DataTable();
+  } );
+</script>
 

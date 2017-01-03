@@ -5,6 +5,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "Ruby Rails Bootstrap" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Ruby Rails Bootstrap" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
     <%= stylesheet_link_tag 'dataTables.bootstrap4', media: 'all' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
     <%= javascript_include_tag 'jquery.dataTables', media: 'all' %>
@@ -21,10 +22,4 @@
        <%= yield %>
     </main>
   </body>
-  <script>
-    $(document).ready(function() {
-      $('#example').DataTable();
-    } );
-
-  </script>
 </html>
