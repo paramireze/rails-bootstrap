@@ -11,12 +11,10 @@
     <thead>
       <tr class="header">
         <th>id</th>
-        <th>first name</th>
-        <th>last name</th>
+        <th>name</th>
         <th>email</th>
         <th>username</th>
         <th>created at</th>
-        <th>password digest</th>
         <th>action</th>
       </tr>
     </thead>
@@ -24,12 +22,10 @@
       <% @users.each do |user| %>
           <tr>
             <td><%= user.id %></td>
-            <td><%= user.first_name %></td>
-            <td><%= user.last_name %></td>
+            <td><%= user.name %></td>
             <td><%= mail_to(user.email) %></td>
             <td><%= user.username %></td>
             <td><%= user.created_at.to_s(:long) %></td>
-            <td><%= truncate(user.password_digest, :length => 20) %></td>
             <td class="actions">
               <%= link_to("Edit", edit_user_path(:id => user.id), :class => 'action edit') %>
               <%= link_to("Delete", delete_user_path(:id => user.id), :class => 'action delete') %>
