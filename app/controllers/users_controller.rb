@@ -24,9 +24,20 @@ class UsersController < ApplicationController
 
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
+
+    if @user.update_attributes(user_params)
+      flash[:notice] = 'User updated'
+      redirect_to(users_path)
+    else
+      flash.now[:notice] = "Error updating user"
+      render('edit')
+    end
+
   end
 
   def delete
