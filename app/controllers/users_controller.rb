@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.sorted
+    @users = User.sorted.active
   end
 
   def show
@@ -41,9 +41,20 @@ class UsersController < ApplicationController
   end
 
   def delete
+    @user = User.find(params[:id])
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @user.deleted = true
+
+    if @user.save
+      flash[:notice] = "Admin User Destroyed!"
+      redirect_to(users_path)
+    else
+      flash[:notice] = "Failed to destroy the user"
+      render('delete')
+    end
   end
 
   private

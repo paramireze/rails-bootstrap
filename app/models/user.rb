@@ -24,6 +24,7 @@ class User < ApplicationRecord
 
   # db query manipulations go here!
   scope :sorted, lambda { order("last_name desc")}
+  scope :active, lambda { where(:deleted => nil)}
 
   # custom method
   def name
