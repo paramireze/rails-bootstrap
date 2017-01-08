@@ -1,6 +1,10 @@
 class User < ApplicationRecord
 
+  #use bcrypt to secure password
   has_secure_password
+
+  #define roles using royce gem
+  royce_roles %w[ user admin editor ]
 
   validates :password, length:{minimum:6}, on: :create
 
@@ -39,8 +43,5 @@ class User < ApplicationRecord
       errors.add(:username, "has been restricted from use.")
     end
   end
-
-
-
 
 end

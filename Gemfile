@@ -14,6 +14,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# add roles model
+gem 'royce', '~> 1.0', '>= 1.0.6'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
