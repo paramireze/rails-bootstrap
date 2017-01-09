@@ -6,4 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.delete_all
-User.create(first_name: 'Numby ', last_name: 'Ass', username: 'nummy', password: 'password', email: 'paramireze@gmail.com')
+nummy = User.create(first_name: 'Numb', last_name: 'Ass', username: 'nummy', password: 'password', email: 'paramireze@gmail.com')
+pokey = User.create(first_name: 'cow ', last_name: 'poker', username: 'pokey', password: 'password', email: 'paramireze@gmail.com')
+
+Role.delete_all
+Role.create(name:'User')
+Role.create(name:'Racer')
+hasher = Role.create(name:'Hasher')
+admin = Role.create(name:'Admin')
+
+UserRole.delete_all
+UserRole.create(user: nummy, role: admin)
+UserRole.create(user: pokey, role: hasher)

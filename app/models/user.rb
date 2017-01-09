@@ -3,6 +3,8 @@ class User < ApplicationRecord
   #use bcrypt to secure our password
   has_secure_password
 
+  has_many :roles, :through => :user_roles
+
   validates :password, length:{minimum:6}, on: :create
 
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
