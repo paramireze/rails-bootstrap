@@ -15,7 +15,7 @@
         <th>email</th>
         <th>username</th>
         <th>created at</th>
-        <th>roles</th>
+
         <th>action</th>
       </tr>
     </thead>
@@ -27,7 +27,7 @@
             <td><%= mail_to(user.email) %></td>
             <td><%= user.username %></td>
             <td><%= user.created_at.to_s(:long) %></td>
-            <td><%= user.role_list %></td>
+
             <td class="actions">
               <%= link_to("Show", user_path(:id => user.id), :class => 'action show') %>
               <%= link_to("Edit", edit_user_path(:id => user.id), :class => 'action edit') %>

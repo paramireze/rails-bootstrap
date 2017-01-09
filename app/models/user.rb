@@ -3,9 +3,6 @@ class User < ApplicationRecord
   #use bcrypt to secure our password
   has_secure_password
 
-  #define roles using royce gem
-  royce_roles %w[ user admin hasher editor ]
-
   validates :password, length:{minimum:6}, on: :create
 
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
