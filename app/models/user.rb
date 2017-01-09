@@ -1,10 +1,10 @@
 class User < ApplicationRecord
 
-  #use bcrypt to secure password
+  #use bcrypt to secure our password
   has_secure_password
 
   #define roles using royce gem
-  royce_roles %w[ user admin editor ]
+  royce_roles %w[ user admin hasher editor ]
 
   validates :password, length:{minimum:6}, on: :create
 
@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :last_name, :presence => true,
             :length => { :maximum => 50 }
 
-  validates :username, :length => { :within => 8..25 },
+  validates :username, :length => { :within => 1..25 },
             :uniqueness => true
 
   validates :email, :presence => true,
