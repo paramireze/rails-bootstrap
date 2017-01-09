@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  before_action :confirm_logged_in
+
+  before_action :is_admin
+
   def index
     @users = User.sorted.active
   end
