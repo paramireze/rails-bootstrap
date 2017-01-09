@@ -1,9 +1,12 @@
 <% @page_title = "Admin Menu" %>
 
 <div class="menu">
+
+
+
   <h2>Admin Menu</h2>
   <div class="identity">Logged in as: <%= @username %></div>
   <ul>
-    <li>test</li>
+    <li><%= link_to 'Users', users_path, class: 'nav-link' %></li>
   </ul>
 </div>
