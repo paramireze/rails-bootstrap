@@ -15,6 +15,3 @@ Role.create(name:'Racer')
 hasher = Role.create(name:'Hasher')
 admin = Role.create(name:'Admin')
 
-UserRole.delete_all
-UserRole.create(user: nummy, role: admin)
-UserRole.create(user: pokey, role: hasher)
