@@ -17,4 +17,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :roles do
+    member do
+      get :delete
+    end
+  end
+
+
 end
