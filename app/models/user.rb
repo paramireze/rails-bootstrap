@@ -3,8 +3,11 @@ class User < ApplicationRecord
   #use bcrypt to secure our password
   has_secure_password
 
+  #role relational mapping
   has_many :roles, :through => :user_roles
+  has_many :user_roles
 
+  #add constraints to obj ect properties to protect against zee bad guys
   validates :password, length:{minimum:6}, on: :create
 
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
@@ -34,6 +37,15 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def is_admin
+    admin = Role.find_by_name('Admin')
+    admin ? has_role(admin.name) : false
+  end
+
+  def has_role(role)
+    roles.any?{|a| a.name == role}
+  end
+
   # custom validation
   private
 
@@ -42,5 +54,4 @@ class User < ApplicationRecord
       errors.add(:username, "has been restricted from use.")
     end
   end
-
 end
