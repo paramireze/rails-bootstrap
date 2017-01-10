@@ -5,13 +5,26 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# create users
 User.delete_all
 nummy = User.create(first_name: 'Numb', last_name: 'Ass', username: 'nummy', password: 'password', email: 'paramireze@gmail.com')
 pokey = User.create(first_name: 'cow ', last_name: 'poker', username: 'pokey', password: 'password', email: 'paramireze@gmail.com')
 
+#create roles
 Role.delete_all
 Role.create(name:'User')
 Role.create(name:'Racer')
 hasher = Role.create(name:'Hasher')
 admin = Role.create(name:'Admin')
+
+
+# assign roles
+nummy.roles << admin
+pokey.roles << hasher
+
+nummy.save
+pokey.save
+
+
 
