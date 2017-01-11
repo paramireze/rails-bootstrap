@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   root to: 'visitors#index'
 
   # explicitly set routing for none typical controller actions
@@ -22,6 +21,4 @@ Rails.application.routes.draw do
       get :delete
     end
   end
-
-
 end

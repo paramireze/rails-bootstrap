@@ -21,4 +21,12 @@ class ApplicationController < ActionController::Base
     return unless session[:user_id]
     @is_admin ||= current_user.is_admin
   end
+
+  def admin_only
+    unless @is_admin
+      flash[:danger] = "not authorized to view this page"
+      redirect_to('/')
+    end
+  end
+
 end

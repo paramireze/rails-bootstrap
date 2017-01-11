@@ -1,7 +1,7 @@
 class RolesController < ApplicationController
   before_action :set_role, only: [:show, :edit, :update, :destroy]
 
-  before_action :admin
+  before_action :admin_only
   # GET /roles
   # GET /roles.json
   def index
@@ -73,11 +73,4 @@ class RolesController < ApplicationController
       params.require(:role).permit(:name)
     end
 
-    def admin
-
-      unless current_user.is_admin
-        flash[:danger] = "not authorized to view this page"
-        redirect_to('/')
-      end
-    end
 end
