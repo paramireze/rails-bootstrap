@@ -13,5 +13,10 @@ module RailsBootstrap
     # -- all .rb files in that directory are automatically loaded.
 
     config.time_zone = 'Central Time (US & Canada)'
+    config.generators do |g|
+      g.assets false
+    end
   end
 end
+
+
