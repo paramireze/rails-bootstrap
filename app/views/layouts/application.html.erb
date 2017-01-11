@@ -12,6 +12,19 @@
     <%= javascript_include_tag 'jquery.dataTables', media: 'all' %>
 
     <%= csrf_meta_tags %>
+    <style type="text/css">
+      .checkbox-list input[type="checkbox"] {
+        display: inline-block;
+        width: 10%;
+      }
+
+      .checkbox-list input[type="checkbox"] + label {
+        display: inline-block;
+        margin-left: 10%;
+        width: 80%;
+      }
+
+    </style>
   </head>
   <body>
     <header>
