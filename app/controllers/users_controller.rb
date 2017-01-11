@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
   before_action :confirm_logged_in
 
-
   def index
     @users = User.sorted.active
   end
@@ -22,12 +21,10 @@ class UsersController < ApplicationController
     else
       render('new')
     end
-
   end
 
-
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def update
@@ -40,7 +37,6 @@ class UsersController < ApplicationController
       flash.now[:notice] = "Error updating user"
       render('edit')
     end
-
   end
 
   def delete
