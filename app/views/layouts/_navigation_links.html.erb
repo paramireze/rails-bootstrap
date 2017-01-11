@@ -1,5 +1,7 @@
 <%# add navigation links to this file %>
-<li class='nav-item'><%= link_to 'Admin', admin_path, class: 'nav-link' %></li>
+<li class='nav-item'>
+  <%= link_to 'Admin', admin_path, class: 'nav-link' %>
+</li>
 <li class='nav-item' style="float:right;">
   <% if session[:user_id] != nil %>
       <%= link_to("Logout", access_logout_path) %>
