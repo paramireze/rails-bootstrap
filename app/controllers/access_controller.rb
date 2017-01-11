@@ -4,6 +4,7 @@ class AccessController < ApplicationController
 
   def menu
     # displat text & links
+    @is_admin = is_admin
     @username = session[:username]
 
   end

@@ -7,8 +7,4 @@ module ApplicationHelper
   def user_is_logged_in?
     !!session[:user_id]
   end
-
-  def is_admin?
-    logger.info current_user.name
-  end
 end
