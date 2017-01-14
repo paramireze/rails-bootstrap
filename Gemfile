@@ -17,6 +17,9 @@ gem 'bcrypt', '~> 3.1.7'
 # add roles model
 gem 'royce', '~> 1.0', '>= 1.0.6'
 
+# allows us to
+gem 'acts_as_list', '~> 0.8.2'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
