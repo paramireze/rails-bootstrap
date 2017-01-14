@@ -1,0 +1,3 @@
+class Race < Event
+
+end

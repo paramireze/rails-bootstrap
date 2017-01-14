@@ -9,16 +9,26 @@ Rails.application.routes.draw do
   post 'access/attempt_login'
   get  'access/logout'
 
-  # gives all 8 actions on subject
+  # gives all 8 actions on users
   resources :users do
     member do
       get :delete
     end
   end
 
+  # gives all 8 actions on roles
   resources :roles do
     member do
       get :delete
     end
   end
+
+  # gives all 8 actions on events
+  resources :events do
+    member do
+      get :delete
+    end
+  end
+
+
 end
