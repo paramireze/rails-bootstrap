@@ -23,8 +23,25 @@ admin = Role.create(name:'Admin')
 nummy.roles << admin
 pokey.roles << hasher
 
+# save users
 nummy.save
 pokey.save
+
+#create distances
+Role.delete_all
+Distance.create(distance: '5 k', description: 'Not too far')
+tenK = Distance.create(distance: '10 k', description: 'Little further')
+
+#create event
+
+FNR.create(distance_id: 1, number: 2, title: 'Friday Night Run', cash: '$5.00', description: "Puppy is doing something somewhere and we should join him and get drunk and eat pizza after running and stuff", startLocation: "Northshore Bay, Madison, WI", publish: true)
+Hash.create(distance_id: 1, number: 3, title: 'Hash', cash: '$5.00', description: "Hashing is awesome", startLocation: "Probably in Madison, WI", publish: true)
+Race.create(distance_id: 1, number: 4, title: 'Finnish Five', cash: '$10.00', description: "Race for something", startLocation: "Not sure where, Madison, WI", publish: true)
+
+
+
+
+
 
 
 

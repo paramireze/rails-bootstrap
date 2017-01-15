@@ -1,3 +1,0 @@
-class FNR < Event
-
-end
