@@ -10,10 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170110022550) do
+ActiveRecord::Schema.define(version: 20170125033034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "distances", force: :cascade do |t|
+    t.integer  "length",                   null: false
+    t.string   "measurement", limit: 250
+    t.string   "description", limit: 2500
+    t.datetime "retire"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "event_types", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.datetime "retire"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "event_type_id"
+    t.integer  "distance_id"
+    t.integer  "number"
+    t.string   "title",         limit: 250
+    t.string   "cash",          limit: 50,   default: "$5",  null: false
+    t.string   "description",   limit: 2500
+    t.string   "startLocation"
+    t.date     "startDate"
+    t.time     "startTime"
+    t.datetime "retire"
+    t.boolean  "visible",                    default: false, null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.index ["distance_id"], name: "index_events_on_distance_id", using: :btree
+    t.index ["event_type_id"], name: "index_events_on_event_type_id", using: :btree
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
