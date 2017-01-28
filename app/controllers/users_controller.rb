@@ -31,10 +31,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(user_params)
-      flash[:notice] = 'User updated'
+      flash[:warning] = 'User updated'
       redirect_to(users_path)
     else
-      flash.now[:notice] = "Error updating user"
+      flash.now[:warning] = "Error updating user"
       render('edit')
     end
   end
