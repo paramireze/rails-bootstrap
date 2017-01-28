@@ -28,6 +28,7 @@ nummy.save
 pokey.save
 
 #create distances
+Distance.delete_all
 fiveK = Distance.create(length: 5, measurement: 'Kilometers', description: '3.2 miles')
 
 #create event
