@@ -36,12 +36,11 @@ ActiveRecord::Schema.define(version: 20170125033034) do
     t.string   "event_type_id"
     t.integer  "distance_id"
     t.integer  "number"
-    t.string   "title",         limit: 250
+    t.string   "title",         limit: 250,                  null: false
     t.string   "cash",          limit: 50,   default: "$5",  null: false
     t.string   "description",   limit: 2500
     t.string   "startLocation"
-    t.date     "startDate"
-    t.time     "startTime"
+    t.datetime "startDate"
     t.datetime "retire"
     t.boolean  "visible",                    default: false, null: false
     t.datetime "created_at",                                 null: false
