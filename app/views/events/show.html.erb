@@ -6,7 +6,7 @@
 <div class="event how">
   <h2>Show Event</h2>
 
-  <table summary="Event detail view">
+  <table class="table" summary="Event detail view">
     <tr>
       <th>Title: </th>
       <td><%= @event.title %></td>
@@ -15,7 +15,10 @@
       <th>description: </th>
       <td><%= @event.description %></td>
     </tr>
-
+    <tr>
+      <th>start date: </th>
+      <td><%= @event.startDate.to_s(:custom_datetime) %></td>
+    </tr>
   </table>
 </div>
 
