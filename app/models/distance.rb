@@ -1,3 +1,6 @@
 class Distance < ApplicationRecord
-  belongs_to :events
+  has_one :events
+  def distance_string
+    "#{length} #{measurement}"
+  end
 end

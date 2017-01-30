@@ -1,3 +1,3 @@
 class Event < ApplicationRecord
-  has_one :distance
+  belongs_to :distance
 end
