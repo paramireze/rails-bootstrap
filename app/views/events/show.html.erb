@@ -19,6 +19,10 @@
       <th>start date: </th>
       <td><%= @event.startDate.to_s(:custom_datetime) %></td>
     </tr>
+    <tr>
+      <th>distance: </th>
+      <td><%= @event.distance.distance_string %></td>
+    </tr>
   </table>
 </div>
 
