@@ -42,6 +42,10 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
+      if event_params[:retire].present?
+        @event.retire = Time.now
+      end
+
       if @event.update(event_params)
         flash[:success] = 'Event was successfully updated.'
 
@@ -72,6 +76,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :description, :startDate, :distance_id, :startLocation, :visible)
+      params.require(:event).permit(:title, :description, :startDate, :distance_id, :startLocation, :visible, :retire_me)
     end
 end
