@@ -26,7 +26,7 @@
       <%= f.label :distance, class: 'col-xs-2 col-form-label' %>
       <div class="col-xs-10">
 
-        <%= collection_select(:event, :distance_id, Distance.all, :id, :distance_string, prompt: true) %>
+        <%= collection_select(:event, :distance_id, Distance.all, :id, :distance_string, prompt: true, :include_blank => true) %>
       </div>
     </div>
 

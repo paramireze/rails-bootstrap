@@ -21,7 +21,11 @@
     </tr>
     <tr>
       <th>distance: </th>
-      <td><%= @event.distance.distance_string %></td>
+      <td>
+        <% if !@event.distance.nil? %>
+        <%= @event.distance.distance_string %>
+        <% end %>
+      </td>
     </tr>
   </table>
 </div>
